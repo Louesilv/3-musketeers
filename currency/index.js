@@ -5,9 +5,11 @@ const RATES_URL = 'https://api.exchangeratesapi.io/latest';
 const BLOCKCHAIN_URL = 'https://blockchain.info/ticker';
 const CURRENCY_BITCOIN = 'BTC';
 
+//true si
 const isAnyBTC = (from, to) => [from, to].includes(CURRENCY_BITCOIN);
 
 module.exports = async opts => {
+  //va être afficher 
   const {amount = 1, from = 'USD', to = CURRENCY_BITCOIN} = opts;
   const promises = [];
   let base = from;
@@ -43,6 +45,7 @@ module.exports = async opts => {
       });
     }
 
+    //Si BTC est la monnaie à convertir 
     if (anyBTC) {
       Object.assign(conversionOpts, {
         'from': to,

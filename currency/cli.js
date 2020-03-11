@@ -2,6 +2,7 @@
 
 const currency = require('./');
 const ora = require('ora');
+//librarie affichant l'état de progression 
 
 const argv = process.argv.slice(2);
 
@@ -23,6 +24,8 @@ const spinner = ora('Fetching exchange data..');
 async function start (opts) {
   try {
     const {amount, from, to} = opts;
+
+    //Récuperer la valeur de la conversion par scraping 
     const result = await currency(opts);
 
     spinner.stop();
